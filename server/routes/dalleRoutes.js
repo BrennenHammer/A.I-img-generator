@@ -1,6 +1,6 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
-import OpenAI from 'openai';
+import { OpenAI } from 'openai';
 
 dotenv.config();
 
@@ -20,6 +20,7 @@ router.route('/').post( async (req, res) => {
     const { prompt } = req.body;
 
     const aiResponse = await openai.images.generate({
+      model: 'dell-e-3',
       prompt,
       n: 1,
       size: '1024x1024',
